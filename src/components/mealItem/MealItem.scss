@@ -1,0 +1,52 @@
+@import '../../styles/variables.scss';
+
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 242px;
+  height: 270px;
+
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  background-color: #fff;
+
+  &_img {
+    img {
+      width: 240px;
+      height: 160px;
+      border-radius: 7px;
+    }
+    .star {
+      position: absolute;
+      left: 4px;
+      svg {
+        width: 35px;
+        height: 35px;
+        path {
+          stroke: #fff;
+        }
+      }
+    }
+    .star:hover {
+      svg {
+        fill:$main-color;
+        path {
+          stroke: $main-color;
+        }
+      }
+    }
+  }
+
+  &_descr {
+    display: block;
+    margin-top: 15px;
+    h2 {
+      height: 20px;
+      font-size: 17px;
+      text-align: center;
+      text-overflow: ellipsis;
+    }
+  }
+}

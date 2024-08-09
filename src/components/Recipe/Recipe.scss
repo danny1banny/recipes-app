@@ -1,0 +1,66 @@
+@import '../../styles/variables.scss';
+
+.recipes {
+  display: flex;
+  position: fixed;
+  top:0;
+  right: 0;
+  z-index: 0;
+  flex-direction: column;
+  align-items: center;
+  float: right;
+  width: 26%;
+  height: 100%;
+  margin-right: 30px;
+
+  &-title {
+    display: flex;
+    margin-top: 40px;
+    svg {
+      width: 30px;
+      height: 30px;
+      fill: $main-color;
+    }
+  }
+
+  .line {
+    border-bottom: solid 1px;
+    width: 90%;
+    opacity: 0.1;
+  }
+
+  .recipe {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-right: 20px;
+    margin-top: 15px;
+    img {
+      width: 340px;
+      height: 250px;
+      border-radius: 10px;
+    }
+
+    h2 {
+      margin-top: 30px;
+    }
+    h4 {
+      margin-top: 10px;
+      color: $main-color;
+    }
+
+    p {
+      display: block;
+
+      margin-top: 10px;
+      font-size: 14px;
+      padding: 0;
+      width: 80%;
+      height: 250px;
+      overflow: hidden;
+      white-space: wrap; 
+      text-overflow: ellipsis;
+    }
+  }
+}
