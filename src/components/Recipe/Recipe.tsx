@@ -1,18 +1,16 @@
-import { FC } from 'react';
 import './Recipe.scss';
 
-type TRecipe = {
+interface RecipeProp {
   strMealThumb: string;
   strCategory: string;
   strInstructions: string;
-  strMeal:string;
+  strMeal: string;
 }
 
-const Recipe: FC<TRecipe>= ({strMealThumb,strInstructions,strCategory,strMeal}) => {
-
+const Recipe = ({ strMealThumb, strInstructions, strCategory, strMeal }: RecipeProp) => {
   return (
     <div className="recipes">
-      <div className='recipes-title'>
+      <div className="recipes-title">
         <span>
           <svg
             fill="#a9aeb9"
@@ -28,13 +26,11 @@ const Recipe: FC<TRecipe>= ({strMealThumb,strInstructions,strCategory,strMeal}) 
 
       <div className="line"></div>
       <div className="recipe">
-      <img src={strMealThumb} alt="#" />
-      <h2>{strMeal}</h2>
-      <h4>{strCategory}</h4>
-      <p>
-        {strInstructions.slice(0, 500)}
-      </p>
-    </div>
+        <img src={strMealThumb} alt="#" />
+        <h2>{strMeal}</h2>
+        <h4>{strCategory}</h4>
+        <p>{strInstructions}</p>
+      </div>
     </div>
   );
 };

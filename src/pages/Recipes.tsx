@@ -1,24 +1,27 @@
+import React from 'react';
 import { useSelector } from 'react-redux';
 import CookingPage from '../components/cookingPage/CookingPage';
 import Recipe from '../components/Recipe/Recipe';
 import { selectMealData } from '../redux/meals/selectors';
-import { useEffect, useState } from 'react';
 import axios from 'axios';
+// import { useAppDispatch } from '../redux/store';
 
-type TRecipe = {
+interface TRecipe {
   idMeal: string;
   strMealThumb: string;
   strCategory: string;
   strInstructions: string;
-  strMeal:string;
+  strMeal: string;
 }
 
-
 const Recipes = () => {
-  const [mealByID, setMealById] = useState<TRecipe[]>([]);
+  const [mealByID, setMealById] = React.useState<TRecipe[]>([]);
   const { id } = useSelector(selectMealData);
+  // const dispatch = useAppDispatch();
 
-  useEffect(() => {
+  const recipeItem = mealByID.map((item) => <Recipe key={item.idMeal} {...item} />);
+
+  React.useEffect(() => {
     async function fetchPizza() {
       try {
         const { data } = await axios.get(
@@ -32,13 +35,10 @@ const Recipes = () => {
     fetchPizza();
   }, [id]);
 
-  console.log(id, mealByID);
-
-  const recipeItem = mealByID.map((item) => <Recipe key={item.idMeal} {...item}/>);
   return (
     <>
       <CookingPage />
-      {mealByID === null ? <div>'выбери'</div> : recipeItem}
+      {recipeItem}
     </>
   );
 };

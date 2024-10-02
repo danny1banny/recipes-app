@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import * as React from 'react';
 
 type TCategory = {
   idCategory: string;
@@ -7,7 +7,7 @@ type TCategory = {
   value: string;
 };
 
-const Categories: FC<TCategory> = ({ strCategory, idCategory, onChangeCategory, value }) => {
+const Categories = ({ strCategory, idCategory, onChangeCategory, value }: TCategory) => {
   return (
     <div className="container">
       <div>

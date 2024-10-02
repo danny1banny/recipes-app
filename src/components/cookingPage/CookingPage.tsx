@@ -1,29 +1,33 @@
-import { FC, useCallback, useEffect} from 'react';
-import Categories from '../categories/Categories';
-import MealList from '../mealList/MealList';
-import './cookingPage.scss';
-import { useAppDispatch } from '../../redux/store';
+import React from 'react';
+
 import { useSelector } from 'react-redux';
+import { useAppDispatch } from '../../redux/store';
+
 import { selectorCategories, setCategoryId, setCategoryName } from '../../redux/filterSlice/slice';
 import { fetchCategories } from '../../redux/filterSlice/slice';
 import { fetchMeals } from '../../redux/meals/fetchMeals';
 
-const CookingPage: FC = () => {
+import Categories from '../categories/Categories';
+import MealList from '../mealList/MealList';
+
+import './cookingPage.scss';
+
+const CookingPage = () => {
   const dispatch = useAppDispatch();
   const { categories, categoryId, categoryName } = useSelector(selectorCategories);
 
-  useEffect(() => {
-    dispatch(fetchCategories());
-  }, [dispatch]);
-
-  const onChangeCategory = useCallback((id: string, name: string) => {
+  const onChangeCategory = React.useCallback((id: string, name: string) => {
     dispatch(setCategoryId(id));
     dispatch(setCategoryName(name));
-  }, [dispatch]);
+  }, []);
 
-  useEffect(() => {
+  React.useEffect(() => {
     dispatch(fetchMeals(categoryName));
-  }, [categoryName, dispatch]);
+  }, []);
+
+  React.useEffect(() => {
+    dispatch(fetchCategories());
+  }, []);
 
   const category = categories.map((category) => (
     <Categories
@@ -33,7 +37,6 @@ const CookingPage: FC = () => {
       {...category}
     />
   ));
-
 
   return (
     <div className="cooking-page">

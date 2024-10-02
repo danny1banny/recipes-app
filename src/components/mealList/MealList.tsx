@@ -1,14 +1,18 @@
+import { useCallback } from 'react';
 import { useSelector } from 'react-redux';
+
 import { selectMealData } from '../../redux/meals/selectors';
-import { FC, useCallback } from 'react';
-import MealItem from '../mealItem/MealItem';
-import Skeleton from './Skeleton';
 import { useAppDispatch } from '../../redux/store';
 import { setIdMeal } from '../../redux/meals/slice';
 
+import MealItem from '../mealItem/MealItem';
+import Skeleton from './Skeleton';
+
 import './mealLIst.scss';
-const MealList: FC = () => {
+
+const MealList = () => {
   const dispatch = useAppDispatch();
+  const { items, status } = useSelector(selectMealData);
 
   const onClickSetId = useCallback(
     (id: string) => {
@@ -16,8 +20,6 @@ const MealList: FC = () => {
     },
     [dispatch],
   );
-
-  const { items, status } = useSelector(selectMealData);
 
   const meals = items.map((meal) => (
     <MealItem key={meal.idMeal} {...meal} onClickSetId={onClickSetId} />

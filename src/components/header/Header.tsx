@@ -1,20 +1,19 @@
-import { FC } from 'react';
 import { Link } from 'react-router-dom';
+
 import styles from './styles.module.scss';
 
-const Header: FC = () => {
-  return (
-    <>
-      <aside className={styles.header}>
-        <Link to='/'>
+const Header = () => (
+  <>
+    <header className={styles.header}>
+      <Link to="/">
         <button>
           <svg fill="#a9aeb9" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
             <path d="M21.71,10.29l-9-9a1,1,0,0,0-1.42,0l-9,9a1,1,0,0,0-.21,1.09A1,1,0,0,0,3,12H4v9a1,1,0,0,0,1,1H8a1,1,0,0,0,1-1V15a1,1,0,0,1,1-1h4a1,1,0,0,1,1,1v6a1,1,0,0,0,1,1h3a1,1,0,0,0,1-1V12h1a1,1,0,0,0,.92-.62A1,1,0,0,0,21.71,10.29Z"></path>
           </svg>
           Home
         </button>
-        </Link>
-        <Link to="/recipe" >
+      </Link>
+      <Link to="/recipe">
         <button>
           <svg
             fill="#a9aeb9"
@@ -26,8 +25,8 @@ const Header: FC = () => {
           </svg>
           Recipes
         </button>
-        </Link>
-        <Link to="/favour">
+      </Link>
+      <Link to="/favour">
         <button>
           <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path
@@ -38,10 +37,10 @@ const Header: FC = () => {
             ></path>
           </svg>
           Favourites
-        </button></Link>
-      </aside>
-    </>
-  );
-};
+        </button>
+      </Link>
+    </header>
+  </>
+);
 
 export default Header;

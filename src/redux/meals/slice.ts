@@ -1,11 +1,12 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { TMeal, IMealSliceState, Status } from './types';
+import { TMeal, IMealSliceState, Status} from './types';
 import { fetchMeals } from './fetchMeals';
 
 const initialState: IMealSliceState = {
-  id: '52772',
+  id: '52771',
   items: [],
   status: Status.LOADING,
+
 };
 
 const mealsSlice = createSlice({

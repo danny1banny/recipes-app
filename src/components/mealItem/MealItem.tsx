@@ -1,16 +1,13 @@
-import { FC } from 'react';
 import './MealItem.scss';
 
-type MealTypeProps = {
+interface MealTypeProps {
   idMeal: string;
   strMeal: string;
   strMealThumb: string;
-  onClickSetId: (id: string) => void
-};
+  onClickSetId: (id: string) => void;
+}
 
-const MealItem: FC<MealTypeProps> = ({ idMeal, strMeal, strMealThumb, onClickSetId }) => {
-
-
+const MealItem = ({ idMeal, strMeal, strMealThumb, onClickSetId }: MealTypeProps) => {
   return (
     <div key={idMeal} className="wrapper">
       <div className="wrapper_img" onClick={() => onClickSetId(idMeal)}>

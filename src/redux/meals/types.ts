@@ -4,6 +4,12 @@ export type TMeal = {
   strMealThumb: string;
 };
 
+export type TMealData = {
+  idMeal: string;
+  strArea: string;
+  strMealThumb: string;
+};
+
 export enum Status {
   LOADING = 'loading',
   SUCCESS = 'success',
@@ -11,7 +17,7 @@ export enum Status {
 }
 
 export interface IMealSliceState {
-  id: string,
+  id: string;
   items: TMeal[];
   status: Status;
 }
